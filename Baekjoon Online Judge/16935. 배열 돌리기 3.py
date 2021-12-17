@@ -31,19 +31,19 @@ def calc_4(arr, n, m):
 
 def calc_5():
     temp = [[0] * m for _ in range(n)]
-    for i in range(n // 2):    # move position: 1 -> 2
+    for i in range(n // 2):    # 1 -> 2
         for j in range(m // 2):
             temp[i][j + m // 2] = arr[i][j]
 
-    for i in range(n // 2):    # move position: 2 -> 3
+    for i in range(n // 2):    # 2 -> 3
         for j in range(m // 2, m):
             temp[i + n // 2][j] = arr[i][j]
 
-    for i in range(n // 2, n):    # move position: 3 -> 4
+    for i in range(n // 2, n):    # 3 -> 4
         for j in range(m // 2, m):
             temp[i][j - m // 2] = arr[i][j]
 
-    for i in range(n // 2, n):    # move position: 4 -> 1
+    for i in range(n // 2, n):  # 4 -> 1
         for j in range(m // 2):
             temp[i - n // 2][j] = arr[i][j]
 
@@ -52,19 +52,19 @@ def calc_5():
 
 def calc_6():
     temp = [[0] * m for _ in range(n)]
-    for i in range(n // 2):    # move position: 1 -> 4
+    for i in range(n // 2):    # 1 -> 4
         for j in range(m // 2):
             temp[i + n // 2][j] = arr[i][j]
 
-    for i in range(n // 2, n):    # move position: 4 -> 3
+    for i in range(n // 2, n):    # 4 -> 3
         for j in range(m // 2):
             temp[i][j + m // 2] = arr[i][j]
 
-    for i in range(n // 2, n):    # move position: 3 -> 2
+    for i in range(n // 2, n):    # 3 -> 2
         for j in range(m // 2, m):
             temp[i - n // 2][j] = arr[i][j]
 
-    for i in range(n // 2):    # move position: 2 -> 1
+    for i in range(n // 2):  # 2 -> 1
         for j in range(m // 2, m):
             temp[i][j - m // 2] = arr[i][j]
 
