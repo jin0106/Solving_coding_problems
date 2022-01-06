@@ -1,19 +1,25 @@
 N = int(input())
-date =  [0] * (N+1)
-price = [0] * (N+1)
-max_paid = 0
-a = N+1
-for i in range(N):
-    t, p = map(int, input().split())
-    date[i+1] = t
-    price[i+1] = p
-for j in range(N, -1, -1):
-    if date[j]+j >a:
-        continue
-    else:
-        if price[j]+price[date[j]] > price[j-1]+price[date[j-1]]:
-            max_paid += price[j]
-            a = j
-print(max_paid)
+T, P = [], []
 
-ø
+max_price = 0
+
+for _ in range(N):
+    t, p = map(int, input().split())
+    T.append(t), P.append(p)
+
+
+def find_price(day, price):
+    global max_price
+
+    if day > N:
+        return
+
+    if day == N:
+        max_price = max(price, max_price)
+        return
+    find_price(day+T[day], price+P[day])
+    find_price(day+1, price)
+
+
+find_price(0, 0)
+print(max_price)
